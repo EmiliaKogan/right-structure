@@ -7,8 +7,8 @@ Fill this in as you go. It is checked, and it is where the actual understanding 
 How many comparisons would a single `serve` perform if `prepare` handed it the raw list of trips
 untouched?
 
-- My prediction:
-- What the test reported:
+- My prediction: 200000
+- What the test reported: 20000000
 - Why the difference (if any):
 
 ## Round 2 — the cost of the second question
