@@ -10,7 +10,9 @@ Round2Prepared: TypeAlias =  tuple[dict[Station, int],dict[tuple[Station, TripId
 
 
 def prepare(trips: Sequence[Trip]) -> Round2Prepared:
-    by_station, by_receipt = {},{}
+    # by_station, by_receipt = {},{}
+    by_station: dict[Station, int] = {}
+    by_receipt = {}
     for trip in trips:
         by_station[trip.station] = by_station.get(trip.station, 0) + 1
         by_receipt[(trip.station, trip.trip_id)] = trip

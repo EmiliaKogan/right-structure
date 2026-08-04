@@ -6,11 +6,12 @@ from typing import Any, Sequence, TypeAlias
 from given.probe import Station, Trip, Distance
 from given.round import check_round
 
-Round3Prepared: TypeAlias = dict[Station: int]         # <- YOUR structural decision, in one line. Replace `Any`.
+Round3Prepared: TypeAlias = dict[Station, Distance]         # <- YOUR structural decision, in one line. Replace `Any`.
 
 
 def prepare(trips: Sequence[Trip]) -> Round3Prepared:
-    station_dist = {}
+    # station_dist = {}
+    station_dist: dict[Station, Distance] = {}
     for trip in trips:
         if trip.station in station_dist:
             station_dist[trip.station] = station_dist[trip.station] + trip.distance_m
@@ -19,7 +20,7 @@ def prepare(trips: Sequence[Trip]) -> Round3Prepared:
     return station_dist
 
 
-def insert_sorted(top_k: list[tuple[Station, Distance]], check: tuple[Station, Distance],):
+def insert_sorted(top_k: list[tuple[Station, Distance]], check: tuple[Station, Distance],) -> None:
     distance_check = check[1]
 
     for index, (_, distance) in enumerate(top_k):
@@ -32,8 +33,8 @@ def insert_sorted(top_k: list[tuple[Station, Distance]], check: tuple[Station, D
 
 def serve(prepared: Round3Prepared, k: int) -> list[Station]:
     """The `k` stations with the most metres ridden from them, most-first."""
-    top_k = []
-
+    #top_k = []
+    top_k: list[tuple[Station, Distance]] = []
     for station, distance in prepared.items():
 
         if len(top_k) < k:

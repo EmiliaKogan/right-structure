@@ -11,7 +11,7 @@ Round5Prepared: TypeAlias = tuple[str, int]     # <- YOUR structural decision, i
 
 def subtree_size(node: Node) -> int:
     if node.is_file:
-        return node.size
+        return node.size or 0
 
     return sum(subtree_size(child) for child in node.children)
 

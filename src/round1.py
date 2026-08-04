@@ -6,7 +6,7 @@ from typing import Any, Sequence, TypeAlias
 from given.probe import Station, Trip
 from given.round import check_round
 
-Round1Prepared: TypeAlias = dict[Station: int]     # <- YOUR structural decision, in one line. Replace `Any`.
+Round1Prepared: TypeAlias = dict[Station, int]     # <- YOUR structural decision, in one line. Replace `Any`.
 
 
 def prepare(trips: Sequence[Trip]) -> Round1Prepared:
